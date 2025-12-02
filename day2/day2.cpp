@@ -7,8 +7,10 @@ int main() {
     std::string line;
 
     while (std::getline(infile, line)) {
-        std::cout << line << std::endl;
+        // IDs are separated by commas
+        std::size_t comma_pos = line.find(',');
     }
-
+    
+    infile.close();
     return 0;
 }
