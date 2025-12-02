@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 int main() {
@@ -8,7 +9,13 @@ int main() {
 
     while (std::getline(infile, line)) {
         // IDs are separated by commas
-        std::size_t comma_pos = line.find(',');
+        std::stringstream ss(line);
+
+        for ( int i; ss >> i;) {
+            std::cout << i << std::endl;
+            if (ss.peek() == ',')
+                ss.ignore();
+        }
     }
     
     infile.close();
