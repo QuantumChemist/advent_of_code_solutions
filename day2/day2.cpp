@@ -6,7 +6,7 @@
 #include <string>
 
 // Returns true if n has any repeating digit
-bool hasRepeatingDigits(int n) {
+bool hasRepeatingDigits(long long n) {
     std::string s = std::to_string(n);
     if (s.size() % 2 != 0) return false;
     std::string first = s.substr(0, s.size() / 2);
@@ -22,15 +22,15 @@ int main() {
         // IDs are separated by commas
         std::stringstream ss(line);
         std::string value;
-        int total_sum = 0;
+        long long total_sum = 0;
         while (std::getline(ss, value, ',')) {
             std::stringstream value_ss(value);
-            int a, b;
+            long long a, b;
             char dash;
             value_ss >> a >> dash >> b;
-            int count = 0;
-            int sum = 0;
-            for (int i = a; i <= b; ++i) {
+            long long count = 0;
+            long long sum = 0;
+            for (long long i = a; i <= b; ++i) {
                 if (hasRepeatingDigits(i)) {
                     count++;
                     sum += i;
