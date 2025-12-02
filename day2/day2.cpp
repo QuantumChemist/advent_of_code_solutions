@@ -22,6 +22,7 @@ int main() {
         // IDs are separated by commas
         std::stringstream ss(line);
         std::string value;
+        int total_sum = 0;
         while (std::getline(ss, value, ',')) {
             std::stringstream value_ss(value);
             int a, b;
@@ -35,8 +36,10 @@ int main() {
                     sum += i;
                 }
             }
+            total_sum += sum;
             std::cout << value << " has " << count << (count == 1 ? " invalid ID" : " invalid IDs") << " with a total sum of " << sum << "." << std::endl;
         }
+        std::cout << "Total sum of invalid IDs in line: " << total_sum << std::endl;
     }
     
     infile.close();
