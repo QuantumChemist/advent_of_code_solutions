@@ -13,9 +13,12 @@ int main() {
         std::string value;
         while (std::getline(ss, value, ',')) {
             std::stringstream value_ss(value);
-            for (int i; value_ss >> i;) { 
-                std::cout << abs(i) << std::endl;
-    }
+            std::cout << value << std::endl;
+            int a, b;
+            char dash;
+            value_ss >> a >> dash >> b;
+            std::cout << abs(a) << std::endl;
+            std::cout << abs(b) << std::endl;
         }
     }
     
