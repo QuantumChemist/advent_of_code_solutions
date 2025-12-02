@@ -33,7 +33,7 @@ int main() {
                     sum++;
                 }
             }
-            std::cout << value << " has sum of  invalid IDs" << sum << (sum == 1 ? "" : "s") << "." << std::endl;
+            std::cout << value << " has sum of invalid IDs " << sum << (sum == 1 ? "" : "s") << "." << std::endl;
         }
     }
     
