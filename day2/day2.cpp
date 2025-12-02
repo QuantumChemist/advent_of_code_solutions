@@ -27,13 +27,15 @@ int main() {
             int a, b;
             char dash;
             value_ss >> a >> dash >> b;
+            int count = 0;
             int sum = 0;
             for (int i = a; i <= b; ++i) {
                 if (hasRepeatingDigits(i)) {
-                    sum++;
+                    count++;
+                    sum += i;
                 }
             }
-            std::cout << value << " has sum of invalid IDs " << sum << "." << std::endl;
+            std::cout << value << " has " << count << (count == 1 ? " invalid ID" : " invalid IDs") << " with a total sum of " << sum << "." << std::endl;
         }
     }
     
