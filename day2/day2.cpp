@@ -28,7 +28,7 @@ int main() {
             long long a, b;
             char dash;
             value_ss >> a >> dash >> b;
-            long long count = 0;
+            int count = 0;
             long long sum = 0;
             for (long long i = a; i <= b; ++i) {
                 if (hasRepeatingDigits(i)) {
