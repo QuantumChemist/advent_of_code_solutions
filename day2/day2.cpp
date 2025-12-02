@@ -14,9 +14,7 @@ int main() {
         while (std::getline(ss, value, ',')) {
             std::stringstream value_ss(value);
             for (int i; value_ss >> i;) { 
-                std::cout << i << std::endl;
-                if (ss.peek() == '-')
-                ss.ignore();
+                std::cout << abs(i) << std::endl;
     }
         }
     }
