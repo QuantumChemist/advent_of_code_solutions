@@ -4,10 +4,13 @@ def parse_ranges(input_str):
 
 def is_invalid_id(n):
     s = str(n)
-    if len(s) % 2 != 0:
-        return False
-    half = len(s) // 2
-    return s[:half] == s[half:]
+    l = len(s)
+    for size in range(1, l // 2 + 1):
+        if l % size == 0:
+            part = s[:size]
+            if part * (l // size) == s:
+                return True
+    return False
 
 def find_invalid_ids(input_str):
     ranges = parse_ranges(input_str)
