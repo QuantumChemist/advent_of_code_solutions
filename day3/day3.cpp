@@ -15,6 +15,8 @@ int main() {
         long long total_sum = 0;
         int curr = 0;
         int prev = 0;
+        int curr_i = 0;
+        int prev_i = 0;
 
         for (size_t i = 0; i < line.size(); ++i) {
             char c = line[i];
