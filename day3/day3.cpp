@@ -11,30 +11,17 @@ int main() {
     long long total_sum = 0;
 
     while (std::getline(infile, line)) {
-        std::string joltage_str = "";
-        int curr = 0;
-        int prev = 0;
-        int prev2 = 0;
-        int curr_i = 0;
-        int prev_i = 0;
-        int prev2_i = 0;
-
-        for (size_t i = 0; i < line.size(); ++i) {
-            char c = line[i];
-            curr = static_cast<int>(c - '0');
-            curr_i = i;
-            if (curr > prev) {
-                prev = curr;
-                prev_i = curr_i;
-            } else if (i > prev_i && curr > prev2) {
-                prev2 = curr;
-                prev2_i = curr_i;
+        int max_joltage = 0;
+        for (size_t i = 0; i < line.size() - 1; ++i) {
+            for (size_t j = i + 1; j < line.size(); ++j) {
+                int val = (line[i] - '0') * 10 + (line[j] - '0');
+                if (val > max_joltage) {
+                    max_joltage = val;
+                }
             }
-        
         }
-        joltage_str = std::string() + line[prev_i] + line[prev2_i];
-        std::cout << "joltage_str: " << joltage_str << std::endl;
-        total_sum += joltage_str.empty() ? 0 : std::stoll(joltage_str);
+        std::cout << "max_joltage: " << max_joltage << std::endl;
+        total_sum += max_joltage;
     }
 
     std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
