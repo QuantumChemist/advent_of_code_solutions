@@ -31,8 +31,9 @@ int main() {
                 prev2 = curr;
                 prev2_i = curr_i;
             }
-            joltage_str = line[prev_i] + line[prev2_i];
+        
         }
+        std::cout << line[prev_i] << line[prev2_i] << std::endl;
         std::cout << "joltage_str: " << joltage_str << std::endl;
         total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
