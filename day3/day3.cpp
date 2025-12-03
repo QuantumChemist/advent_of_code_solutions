@@ -27,12 +27,11 @@ int main() {
             if (curr > prev) {
                 prev = curr;
                 prev_i = curr_i;
-                joltage_str += c;
             } else if (i > prev_i && curr > prev2) {
                 prev2 = curr;
                 prev2_i = curr_i;
-                joltage_str += c;
             }
+            joltage_str = line[prev_i] + line[prev2_i]
         }
         std::cout << "joltage_str: " << joltage_str << std::endl;
         total_sum += joltage;
