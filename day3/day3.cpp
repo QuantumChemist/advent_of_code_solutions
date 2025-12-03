@@ -13,10 +13,15 @@ int main() {
         std::stringstream ss(line);
         long long joltage = 0;
         long long total_sum = 0;
-            total_sum += joltage;
-        
-        
+        int currr = 0;
+        int prev = 0;
+
+        for (size_t i = 0; i < line.size(); ++i) {
+            char c = line[i];
+        }
+        total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
+
     }
     
     infile.close();
