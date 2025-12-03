@@ -33,7 +33,7 @@ int main() {
                 prev2_i = curr_i;
             }
         }
-        // Form the two-digit number in the order they appear
+
         if (prev_i != -1 && prev2_i != -1) {
             if (prev_i < prev2_i) {
                 joltage_str = std::string() + line[prev_i] + line[prev2_i];
