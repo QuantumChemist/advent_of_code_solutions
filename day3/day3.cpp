@@ -12,7 +12,6 @@ int main() {
 
     while (std::getline(infile, line)) {
         std::string joltage_str = "";
-        long long joltage = 0;
         int curr = 0;
         int prev = 0;
         int prev2 = 0;
@@ -35,7 +34,7 @@ int main() {
         }
         joltage_str = std::string() + line[prev_i] + line[prev2_i];
         std::cout << "joltage_str: " << joltage_str << std::endl;
-        total_sum += joltage;
+        total_sum += joltage_str.empty() ? 0 : std::stoll(joltage_str);
     }
 
     std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
