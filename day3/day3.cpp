@@ -27,12 +27,12 @@ int main() {
             if (curr > prev) {
                 prev = curr;
                 prev_i = curr_i;
-            } else if (i != prev_i && curr > prev2) {
+            } else if (i > prev_i && curr > prev2) {
                 prev2 = curr;
                 prev2_i = curr_i;
             }
-            std::cout << "prev: " << prev << " prev_i: " << prev_i << " prev2: " << prev2 << " prev2_i: " << prev2_i << " curr: " << curr << std::endl;
         }
+        std::cout << "prev: " << prev << " prev_i: " << prev_i << " prev2: " << prev2 << " prev2_i: " << prev2_i << " curr: " << curr << std::endl;
         total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
 
