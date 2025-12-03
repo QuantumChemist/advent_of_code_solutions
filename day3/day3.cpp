@@ -10,7 +10,7 @@ int main() {
     std::string line;
 
     while (std::getline(infile, line)) {
-        std::stringstream ss(line);
+        std::string joltage_str = "";
         long long joltage = 0;
         long long total_sum = 0;
         int curr = 0;
@@ -27,12 +27,14 @@ int main() {
             if (curr > prev) {
                 prev = curr;
                 prev_i = curr_i;
+                joltage_str += c;
             } else if (i > prev_i && curr > prev2) {
                 prev2 = curr;
                 prev2_i = curr_i;
+                joltage_str += c;
             }
         }
-        std::cout << "prev: " << prev << " prev_i: " << prev_i << " prev2: " << prev2 << " prev2_i: " << prev2_i << " curr: " << curr << std::endl;
+        std::cout << "joltage_str: " << joltage_str << curr << std::endl;
         total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
 
