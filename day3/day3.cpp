@@ -14,10 +14,30 @@ int main() {
         int max_joltage = 0;
         for (size_t i = 0; i < line.size() - 1; ++i) {
             for (size_t j = i + 1; j < line.size(); ++j) {
+                for (size_t a = j + 1; a < line.size() - 1; ++a) {
+                    for (size_t b = a + 1; b < line.size(); ++b) {
+                        for (size_t c = b + 1; c < line.size() - 1; ++c) {
+                            for (size_t d = c + 1; d < line.size(); ++d) {
+                                for (size_t e = d + 1; e < line.size() - 1; ++e) {
+                                    for (size_t f = e + 1; f < line.size(); ++f) {
+                                        for (size_t g = f + 1; g < line.size() - 1; ++g) {
+                                            for (size_t h = g + 1; h < line.size(); ++h) {
+                                                for (size_t k = h + 1; k < line.size() - 1; ++k) {
+                                                    for (size_t l = k + 1; l < line.size(); ++l) {
                 int val = (line[i] - '0') * 10 + (line[j] - '0');
                 if (val > max_joltage) {
                     max_joltage = val;
                 }
+                            }
+        }
+                    }
+        }
+                    }
+        }
+                    }
+        }
+                    }
+        }
             }
         }
         std::cout << "max_joltage: " << max_joltage << std::endl;
