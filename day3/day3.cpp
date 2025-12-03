@@ -21,8 +21,10 @@ int main() {
         for (size_t i = 0; i < line.size(); ++i) {
             char c = line[i];
             curr = static_cast<int>(c - '0');
+            curr_i = i;
             if (curr > prev) {
                 prev = curr;
+                prev_i = curr_i;
             }
             std::cout << "prev: " << prev << " curr: " << curr << std::endl;
         }
