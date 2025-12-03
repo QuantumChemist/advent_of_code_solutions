@@ -20,8 +20,9 @@ int main() {
             char c = line[i];
             curr = static_cast<int>(c - '0');
             if (curr > prev) {
-                std::cout << "prev: " << prev << " curr: " << curr << std::endl;
+                prev = curr;
             }
+            std::cout << "prev: " << prev << " curr: " << curr << std::endl;
         }
         total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
