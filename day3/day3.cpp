@@ -8,11 +8,11 @@
 int main() {
     std::ifstream infile("day3.txt");
     std::string line;
+    long long total_sum = 0;
 
     while (std::getline(infile, line)) {
         std::string joltage_str = "";
         long long joltage = 0;
-        long long total_sum = 0;
         int curr = 0;
         int prev = 0;
         int prev2 = 0;
@@ -33,13 +33,12 @@ int main() {
             }
         
         }
-        joltage_str = line[prev_i] + line[prev2_i];
+        joltage_str = std::string() + line[prev_i] + line[prev2_i];
         std::cout << "joltage_str: " << joltage_str << std::endl;
         total_sum += joltage;
-        std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
-
     }
-    
+
+    std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
     infile.close();
     return 0;
 }
