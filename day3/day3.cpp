@@ -34,7 +34,7 @@ int main() {
                 joltage_str += c;
             }
         }
-        std::cout << "joltage_str: " << joltage_str << curr << std::endl;
+        std::cout << "joltage_str: " << joltage_str << std::endl;
         total_sum += joltage;
         std::cout << "Total sum of battery joltage: " << total_sum << std::endl;
 
