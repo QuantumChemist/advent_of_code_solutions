@@ -31,7 +31,7 @@ int main() {
                 prev2 = curr;
                 prev2_i = curr_i;
             }
-            joltage_str = line[prev_i] + line[prev2_i]
+            joltage_str = line[prev_i] + line[prev2_i];
         }
         std::cout << "joltage_str: " << joltage_str << std::endl;
         total_sum += joltage;
