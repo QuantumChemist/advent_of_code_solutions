@@ -24,7 +24,7 @@ int main() {
                                             for (size_t h = g + 1; h < line.size(); ++h) {
                                                 for (size_t k = h + 1; k < line.size() - 1; ++k) {
                                                     for (size_t l = k + 1; l < line.size(); ++l) {
-                int val = (line[i] - '0') * 10 + (line[j] - '0');
+                int val =  (line[i] - '0') * 100000000000 +  (line[j] - '0') * 10000000000 +  (line[a] - '0') * 1000000000 + (line[b] - '0') * 100000000 + (line[c] - '0') * 10000000 + (line[d] - '0') * 1000000 +  (line[e] - '0') * 100000 +  (line[f] - '0') * 10000 + (line[g] - '0') * 1000 + (line[h] - '0') * 100 + (line[k] - '0') * 10 + (line[l] - '0');
                 if (val > max_joltage) {
                     max_joltage = val;
                 }
