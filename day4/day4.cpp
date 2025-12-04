@@ -60,5 +60,7 @@ int main() {
  
    // boi i suck....
 
+    std::cout << "Total papers with less than 4 neighboring '@': " << total_papers << std::endl;
+
     return 0;
 }
