@@ -51,7 +51,9 @@ int main() {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == '@') {
-                total_papers += check_neighbors(grid, i, j);
+                if (check_neighbors(grid, i, j) < 4) {
+                    total_papers++;
+                }
             }
         }
     }
