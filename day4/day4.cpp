@@ -10,7 +10,7 @@ int main() {
     std::string line;
 
     while (std::getline(infile, line)) {
-
+        
     }
     infile.close();
     return 0;
