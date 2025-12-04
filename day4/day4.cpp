@@ -37,6 +37,7 @@ int main() {
     std::ifstream infile("day4.txt");
     std::string line;
     std::vector<std::string> grid;
+    std::vector<std::string> rm_grid;
     long total_papers = 0;
 
     // Read each line into the vector
@@ -47,18 +48,20 @@ int main() {
 
     int rows = grid.size();           // number of rows
     int cols = grid[0].size();        // number of columns
+    rm_grid = grid;  // Copy grid first
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == '@') {
                 if (check_neighbors(grid, i, j) < 4) {
                     total_papers++;
+                    rm_grid[i][j] = '-'; // mark for removal
                 }
             }
         }
     }
 
-
+    grid = rm_grid;
 
  
    // boi i suck....
