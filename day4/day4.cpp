@@ -50,19 +50,20 @@ int main() {
     int cols = grid[0].size();        // number of columns
     rm_grid = grid;  // Copy grid first
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if (grid[i][j] == '@') {
-                if (check_neighbors(grid, i, j) < 4) {
-                    total_papers++;
-                    rm_grid[i][j] = '-'; // mark for removal
+    while (true) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '@') {
+                    if (check_neighbors(grid, i, j) < 4) {
+                        total_papers++;
+                        rm_grid[i][j] = '-'; // mark for removal
+                    }
                 }
             }
         }
+
+        grid = rm_grid;
     }
-
-    grid = rm_grid;
-
  
    // boi i suck....
 
