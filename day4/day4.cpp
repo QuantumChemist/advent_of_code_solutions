@@ -39,6 +39,7 @@ int main() {
     std::vector<std::string> grid;
     std::vector<std::string> rm_grid;
     long total_papers = 0;
+    long curr_total_papers = 0;
 
     // Read each line into the vector
     while (std::getline(infile, line)) {
@@ -50,7 +51,8 @@ int main() {
     int cols = grid[0].size();        // number of columns
     rm_grid = grid;  // Copy grid first
 
-    while (true) {
+    while (curr_total_papers != total_papers) {
+        curr_total_papers = total_papers;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == '@') {
