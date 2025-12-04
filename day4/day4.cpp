@@ -38,6 +38,7 @@ int main() {
     std::string line;
     std::vector<std::string> grid;
     long total_papers = 0;
+    long total_papers2 = 0;
 
     // Read each line into the vector
     while (std::getline(infile, line)) {
@@ -53,7 +54,7 @@ int main() {
             if (grid[i][j] == '@') {
                 if (check_neighbors(grid, i, j) < 4) {
                     total_papers++;
-                    grid[i][j] == '.'; // remove paper
+                    grid[i][j] = '.'; // remove paper
                 }
             }
         }
@@ -62,6 +63,7 @@ int main() {
    // boi i suck....
 
     std::cout << "Total papers with less than 4 neighboring '@': " << total_papers << std::endl;
+    std::cout << "Total papers 2 with less than 4 neighboring '@': " << total_papers2 << std::endl;
 
     return 0;
 }
