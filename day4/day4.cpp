@@ -54,11 +54,11 @@ int main() {
             if (grid[i][j] == '@') {
                 if (check_neighbors(grid, i, j) < 4) {
                     total_papers++;
-                    grid[i][j] = '.'; // remove paper
                 }
             }
         }
     }
+
  
    // boi i suck....
 
