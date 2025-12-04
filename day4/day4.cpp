@@ -39,7 +39,7 @@ int main() {
     std::vector<std::string> grid;
     std::vector<std::string> rm_grid;
     long total_papers = 0;
-    long curr_total_papers = 0;
+    long curr_total_papers = -1;
 
     // Read each line into the vector
     while (std::getline(infile, line)) {
