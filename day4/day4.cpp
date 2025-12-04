@@ -17,18 +17,18 @@ int main() {
     }
     infile.close();
 
-    for (int di = -1; di <= 1; di++) {
-    for (int dj = -1; dj <= 1; dj++) {
-        if (di == 0 && dj == 0) continue;  // Skip the cell itself
-        int ni = i + di;  // neighbor row
-        int nj = j + dj;  // neighbor column
-        if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size()) {
-            if (grid[ni][nj] == '@') {
-                // Count this neighbor
+    int rows = grid.size();           // number of rows
+    int cols = grid[0].size();        // number of columns
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (grid[i][j] == '@') {
+                // This is a roll of paper, check its neighbors
             }
         }
     }
-} // boi i suck....
+ 
+   // boi i suck....
 
     return 0;
 }
