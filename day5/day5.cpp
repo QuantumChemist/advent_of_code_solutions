@@ -37,14 +37,15 @@ int main() {
     }
 
     // Check which available ingredients fall within any fresh ingredient range
-    for (const auto& range : fresh_ingredients) {
-        std::stringstream ss(range);
-        long long a, b;
-        char dash;
-        ss >> a >> dash >> b;
-        for (const auto& quantity : available_ingredients) {
+    for (const auto& quantity : available_ingredients) {
+        for (const auto& range : fresh_ingredients) {
+            std::stringstream ss(range);
+            long long a, b;
+            char dash;
+            ss >> a >> dash >> b;
             if (quantity >= a && quantity <= b) {
                 fresh_sum++;
+                break;
             }
         }
     }
