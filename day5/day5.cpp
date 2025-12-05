@@ -95,6 +95,13 @@ int main() {
     ss >> a >> dash >> b;
     intervals.push_back({static_cast<int>(a), static_cast<int>(b)});
 }
+    std::vector<std::vector<int>> merged_intervals = mergeOverlap(intervals);
+    std::cout << "Merged Fresh Ingredient Ranges:" << std::endl;
+    for (const auto& interval : merged_intervals) {
+        std::cout << interval[0] << "-" << interval[1] << std::endl;
+        total_fresh += (interval[1] - interval[0] + 1);
+    }
+    std::cout << "Total number of fresh ingredients after merging ranges: " << total_fresh << std::endl;
 
     infile.close();
     return 0;
