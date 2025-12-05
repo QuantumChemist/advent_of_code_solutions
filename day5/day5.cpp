@@ -9,17 +9,17 @@
 #include <bits/stdc++.h>
 
 // Checking Last Merged Interval – O(n*log(n)) Time and O(n) Space
-std::vector<std::vector<int>> mergeOverlap(std::vector<std::vector<int>>& arr) {
+std::vector<std::vector<long long>> mergeOverlap(std::vector<std::vector<long long>>& arr) {
 
     // Sort intervals based on start values
     sort(arr.begin(), arr.end());
   
-    std::vector<std::vector<int>> res;
+    std::vector<std::vector<long long>> res;
     res.push_back(arr[0]);
 
-    for (int i = 1; i < arr.size(); i++) {
-        std::vector<int>& last = res.back();
-        std::vector<int>& curr = arr[i];
+    for (long long i = 1; i < arr.size(); i++) {
+        std::vector<long long>& last = res.back();
+        std::vector<long long>& curr = arr[i];
 
         // If current interval overlaps with the last merged
         // interval, merge them 
@@ -44,7 +44,7 @@ int main() {
     std::vector<long long> available_ingredients;
     long long fresh_sum = 0;
     long long total_fresh = 0;
-    std::vector<std::vector<int>> intervals;
+    std::vector<std::vector<long long>> intervals;
 
     while (std::getline(infile, line)) {
         if (line == "") {
@@ -77,14 +77,14 @@ int main() {
         }
     }
 
-    std::cout << "Fresh Ingredients:" << std::endl;
-    for (const auto& ingredient : fresh_ingredients) {
-        std::cout << ingredient << std::endl;
-    }   
-    std::cout << "Available Ingredients:" << std::endl;
-    for (const auto& quantity : available_ingredients) {
-        std::cout << quantity << std::endl;
-    }
+    // std::cout << "Fresh Ingredients:" << std::endl;
+    // for (const auto& ingredient : fresh_ingredients) {
+    //     std::cout << ingredient << std::endl;
+    // }   
+    // std::cout << "Available Ingredients:" << std::endl;
+    // for (const auto& quantity : available_ingredients) {
+    //     std::cout << quantity << std::endl;
+    // }
 
     std::cout << "Total sum of fresh ingredients: " << fresh_sum << std::endl;
 
@@ -93,12 +93,12 @@ int main() {
     long long a, b;
     char dash;
     ss >> a >> dash >> b;
-    intervals.push_back({static_cast<int>(a), static_cast<int>(b)});
+    intervals.push_back({a, b});
 }
-    std::vector<std::vector<int>> merged_intervals = mergeOverlap(intervals);
-    std::cout << "Merged Fresh Ingredient Ranges:" << std::endl;
+    std::vector<std::vector<long long>> merged_intervals = mergeOverlap(intervals);
+   // std::cout << "Merged Fresh Ingredient Ranges:" << std::endl;
     for (const auto& interval : merged_intervals) {
-        std::cout << interval[0] << "-" << interval[1] << std::endl;
+        // std::cout << interval[0] << "-" << interval[1] << std::endl;
         total_fresh += (interval[1] - interval[0] + 1);
     }
     std::cout << "Total number of fresh ingredients after merging ranges: " << total_fresh << std::endl;
