@@ -58,6 +58,8 @@ int main() {
         std::cout << quantity << std::endl;
     }
 
+    std::cout << "Total sum of fresh ingredients: " << fresh_sum << std::endl;
+
     infile.close();
     return 0;
 }
