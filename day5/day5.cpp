@@ -6,6 +6,31 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <bits/stdc++.h>
+
+// Checking Last Merged Interval – O(n*log(n)) Time and O(n) Space
+std::vector<std::vector<int>> mergeOverlap(std::vector<std::vector<int>>& arr) {
+
+    // Sort intervals based on start values
+    sort(arr.begin(), arr.end());
+  
+    std::vector<std::vector<int>> res;
+    res.push_back(arr[0]);
+
+    for (int i = 1; i < arr.size(); i++) {
+        std::vector<int>& last = res.back();
+        std::vector<int>& curr = arr[i];
+
+        // If current interval overlaps with the last merged
+        // interval, merge them 
+        if (curr[0] <= last[1]) 
+            last[1] = std::max(last[1], curr[1]);
+        else 
+            res.push_back(curr);
+    }
+
+    return res;
+}
 
 
 int main() {
@@ -18,6 +43,8 @@ int main() {
     std::vector<std::string> fresh_ingredients;
     std::vector<long long> available_ingredients;
     long long fresh_sum = 0;
+    long long total_fresh = 0;
+    std::vector<std::vector<int>> intervals;
 
     while (std::getline(infile, line)) {
         if (line == "") {
@@ -60,6 +87,14 @@ int main() {
     }
 
     std::cout << "Total sum of fresh ingredients: " << fresh_sum << std::endl;
+
+    for (const auto& range : fresh_ingredients) {
+    std::stringstream ss(range);
+    long long a, b;
+    char dash;
+    ss >> a >> dash >> b;
+    intervals.push_back({static_cast<int>(a), static_cast<int>(b)});
+}
 
     infile.close();
     return 0;
