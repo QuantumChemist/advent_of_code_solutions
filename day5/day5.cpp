@@ -44,7 +44,7 @@ int main() {
         ss >> a >> dash >> b;
         for (const auto& quantity : available_ingredients) {
             if (quantity >= a && quantity <= b) {
-                fresh_sum += quantity;
+                fresh_sum++;
             }
         }
     }
