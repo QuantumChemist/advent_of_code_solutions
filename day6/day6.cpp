@@ -71,5 +71,38 @@ int main() {
     }
     std::cout << "Total: " << total << std::endl;
 
+    part_two();
+
     return 0;
+}
+
+void part_two() {
+
+    std::vector<std::string> number_lines;
+    std::string operator_line;
+
+    std::ifstream infile("day6.txt");
+    std::string line;
+    while (std::getline(infile, line)) {
+        number_lines.push_back(line);
+    }
+    infile.close();
+
+    if (!number_lines.empty()) {
+        operator_line = number_lines.back();
+        number_lines.pop_back(); // Remove operator line from number_lines
+    }
+
+    int nrows = number_lines.size();
+    int ncols = number_lines[0].size();
+    std::vector<std::string> columns(ncols);
+
+    for (int col = 0; col < ncols; ++col) {
+        std::string col_str;
+        for (int row = 0; row < nrows; ++row) {
+            col_str += number_lines[row][col];
+        }
+        columns[col] = col_str;
+    }
+    
 }
