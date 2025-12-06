@@ -11,30 +11,36 @@ int main() {
     std::ifstream infile("day6.txt");
     std::string line;
     std::vector<std::vector<int>> grid;
+    std::vector<std::string> operations;
+    std::string ops;
+    int count = 0;
 
     // Read each line into the vector
     while (std::getline(infile, line)) {
+        count++;
         std::stringstream ss(line);
         int num;
         std::vector<int> row;
-        std::vector<int> throwaway;
 
         while ( ss >> num) {
                 row.push_back(num);
         }    
         grid.push_back(row);
-    }
-    infile.close();
-    
-    // Print the grid to verify
-    for (const auto& row : grid) {
-        for (const auto& val : row) {
-            std::cout << val << " ";
+
+        if (count > 4) {
+            ops = ss.str();
         }
-        std::cout << std::endl;
-    }   
+    }
+    infile.close(); 
+
+    std::stringstream opss(ops);
+    std::string operation; 
+    while (opss >> operation) {
+        operations.push_back(operation);
+    }
 
     std::cout << grid[3][8] << std::endl; 
+    std::cout << operations[0] << std::endl;
 
     return 0;
 }
