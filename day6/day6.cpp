@@ -40,7 +40,16 @@ int main() {
         operations.push_back(operation);
     }
 
-    result.resize(operations.size(), 1);
+    result.resize(operations.size());
+
+    for (int col = 0; col < operations.size(); col++) {
+        if (operations[col] == "+") {
+            result[col] += 0;
+        }
+        if (operations[col] == "*") {
+            result[col] *= 1;
+        }
+    }
 
     for (int row = 0; row < grid.size(); row++) {
         for (int col = 0; col < grid[row].size(); col++) {
