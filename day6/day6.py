@@ -2,15 +2,19 @@
 
 def read_input(file_path):
     with open(file_path, 'r') as file:
-        return file.read().strip()
+        return [line.rstrip('\n') for line in file]
     
-day6 = read_input('day6.txt')
-zahl = 0
+lines = read_input('day6.txt')
+# Find the maximum line length to handle uneven lines
+max_len = max(len(line) for line in lines)
 
-for i in day6:
-    print(i)
-    zahl += 1
-    if zahl == 14:
-        break
+# Pad lines to the same length if needed
+padded_lines = [line.ljust(max_len) for line in lines]
+
+print('Columns:')
+for col in range(max_len):
+    column_chars = [padded_lines[row][col] for row in range(len(padded_lines))]
+    print(column_chars)
+
 
 
