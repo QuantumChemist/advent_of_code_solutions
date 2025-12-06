@@ -12,6 +12,7 @@ int main() {
     std::string line;
     std::vector<std::vector<int>> grid;
     std::vector<std::string> operations;
+    std::vector<long long> result;
     std::string ops;
     int count = 0;
 
@@ -39,8 +40,22 @@ int main() {
         operations.push_back(operation);
     }
 
-    std::cout << grid[3][8] << std::endl; 
-    std::cout << operations[0] << std::endl;
+    result.resize(operations.size(), 1);
+
+    for (int row = 0; row < grid.size(); row++) {
+        for (int col = 0; col < grid[row].size(); col++) {
+            if (operations[col] == "+") {
+                result[col] += grid[row][col];
+            }
+            if (operations[col] == "*") {
+                result[col] *= grid[row][col];
+            }
+        }
+    }
+
+    std::cout << grid[2][3] << std::endl; 
+    std::cout << operations[3] << std::endl;
+    std::cout << result[2] << std::endl;
 
     return 0;
 }
