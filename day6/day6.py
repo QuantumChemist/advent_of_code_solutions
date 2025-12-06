@@ -25,7 +25,15 @@ for col in range(max_len):
     final += ''.join(column_chars).rstrip() + '\n'
 
 # save final to file
-with open('day6_part2_output.txt', 'w') as output_file:
-    output_file.write(final)
+#with open('day6_part2_output.txt', 'w') as output_file:
+#    output_file.write(final)
+
+def do_calc_in_day6_part2():
+    with open('day6_part2_output.txt') as f:
+        expr = f.read().replace('\n', '')
+    result = eval(expr)
+    print(result)
+
+do_calc_in_day6_part2()
 
 
