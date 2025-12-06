@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-// bro, I barely got part one without Copilot, part two will be shamelessly with Copilot xDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+// bro, I barely got part one without Copilot, part two will be shamelessly with Copilot 
 
 
 int main() {
