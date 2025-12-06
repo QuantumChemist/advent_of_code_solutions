@@ -27,6 +27,7 @@ for col in range(max_len):
 # save final to file
 #with open('day6_part2_output.txt', 'w') as output_file:
 #    output_file.write(final)
+# done manually ... usually I would automate that too ... to reformat the file but I did it manually...
 
 def do_calc_in_day6_part2():
     with open('day6_part2_output.txt') as f:
