@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+// bro, I barely got part one without Copilot, part two will be shamelessly with Copilot xDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+
 
 int main() {
     std::ifstream infile("day6.txt");
