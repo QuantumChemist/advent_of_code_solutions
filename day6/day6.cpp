@@ -15,6 +15,7 @@ int main() {
     std::vector<long long> result;
     std::string ops;
     int count = 0;
+    long long total = 0;
 
     // Read each line into the vector
     while (std::getline(infile, line)) {
@@ -44,12 +45,13 @@ int main() {
 
     for (int col = 0; col < operations.size(); col++) {
         if (operations[col] == "+") {
-            result[col] += 0;
+            result[col] = 0;
         }
         if (operations[col] == "*") {
-            result[col] *= 1;
+            result[col] = 1;
         }
     }
+
 
     for (int row = 0; row < grid.size(); row++) {
         for (int col = 0; col < grid[row].size(); col++) {
@@ -62,9 +64,10 @@ int main() {
         }
     }
 
-    std::cout << grid[2][3] << std::endl; 
-    std::cout << operations[3] << std::endl;
-    std::cout << result[2] << std::endl;
+    for (const auto& res : result) {
+        total += res;
+    }
+    std::cout << "Total: " << total << std::endl;
 
     return 0;
 }
