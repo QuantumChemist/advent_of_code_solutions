@@ -21,5 +21,7 @@ int main() {
     }
     infile.close();
 
+    std::cout << "Total number of splitters (^) in the file: " << splitter_count << std::endl;
+
     return 0;
 }
