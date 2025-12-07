@@ -15,7 +15,16 @@
 #include <cctype>
 #include <array>
 #include <stack>
-
+#include <unordered_set>
+#include <unordered_map>
+#include <functional>
+#include <bitset>
+#include <numeric>
+#include <optional>
+#include <variant>
+#include <cassert>
+#include <chrono>
+#include <random>
 
 int main() {
     std::ifstream infile("day7.txt");
@@ -49,33 +58,27 @@ int main() {
 
     // Part 2: Quantum splitting (many-worlds)
     // Each timeline is a unique path; we want to count unique end positions in the last row
-    std::set<std::pair<int, int>> quantum_visited; // (row, col) per timeline
     std::set<int> end_columns; // columns reached in last row
-    std::stack<std::pair<int, int>> stack;
-    stack.push({start_row + 1, start_col});
 
-    while (!stack.empty()) {
-        auto [r, c] = stack.top();
-        stack.pop();
-        if (r < 0 || r >= rows || c < 0 || c >= cols) continue;
-        // Each timeline can revisit a cell, but not the same (row,col) in the same timeline
-        if (quantum_visited.count({r, c})) continue;
-        quantum_visited.insert({r, c});
-
+    // Recursive DFS function
+    std::function<void(int, int)> dfs = [&](int r, int c) {
+        if (r < 0 || r >= rows || c < 0 || c >= cols) return;
         char cell = grid[r][c];
         if (r == rows - 1) {
             end_columns.insert(c);
-            continue;
+            return;
         }
         if (cell == '^') {
             // Split: left and right
-            if (c - 1 >= 0) stack.push({r + 1, c - 1});
-            if (c + 1 < cols) stack.push({r + 1, c + 1});
+            if (c - 1 >= 0) dfs(r + 1, c - 1);
+            if (c + 1 < cols) dfs(r + 1, c + 1);
         } else if (cell == '.' || cell == 'S') {
-            stack.push({r + 1, c});
+            dfs(r + 1, c);
         }
         // Ignore other characters
-    }
+    };
+
+    dfs(start_row + 1, start_col);
 
     std::cout << "Total number of quantum timelines (unique end positions): " << end_columns.size() << std::endl;
     return 0;
