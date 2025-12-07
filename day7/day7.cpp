@@ -83,3 +83,5 @@ int main() {
     std::cout << "Total number of quantum timelines (unique end positions): " << end_columns.size() << std::endl;
     return 0;
 }
+
+// giving up lol
