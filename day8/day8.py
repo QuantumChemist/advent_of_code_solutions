@@ -50,39 +50,21 @@ for i in range(num_junctions):
 pairs.sort()
 
 
-# --- Connect the 1000 closest pairs, regardless of cycles ---
-edges = pairs[:1000]
-print(f"Number of junctions: {num_junctions}")
-print(f"Number of connections to make: {len(edges)}")
 
-# --- Use Union-Find to determine circuits after all connections ---
+# --- PART TWO: Connect pairs until all are in one circuit ---
 uf = UnionFind(num_junctions)
-min_distance = INF
-for distance, i, j in edges:
-    uf.union(i, j)
-    if distance < min_distance:
-        min_distance = distance
-
-# --- Count the sizes of all circuits ---
-from collections import Counter
-root_counts = Counter()
-for i in range(num_junctions):
-    root = uf.find(i)
-    root_counts[root] += 1
-sizes = sorted(root_counts.values(), reverse=True)
-
-print(f"Number of circuits after connecting: {len(sizes)}")
-
-if len(sizes) >= 3:
-    result = sizes[0] * sizes[1] * sizes[2]
-else:
-    result = 0
-
-print(f"Minimum distance found: {min_distance}")
-print(f"Sizes of three largest circuits: {sizes[:3]}")
-print(f"Product of three largest: {result}")
-
-print(f"Minimum distance found: {min_distance}")
+num_circuits = num_junctions
+last_pair = None
+for distance, i, j in pairs:
+    if uf.find(i) != uf.find(j):
+        uf.union(i, j)
+        num_circuits -= 1
+        if num_circuits == 1:
+            last_pair = (i, j)
+            print(f"Last connection: {junction_box[i]} <-> {junction_box[j]}")
+            print(f"Distance: {distance}")
+            print(f"Product of X coordinates: {junction_box[i][0] * junction_box[j][0]}")
+            break
 
 
 
