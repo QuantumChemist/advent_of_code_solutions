@@ -10,11 +10,10 @@ for line in code.splitlines():
 # find largest rectangle area between opposite corners
 
 max_area = 0
-num_points = len(coordinates)
-for i in range(num_points):
-    for j in range(num_points):
-        length = abs(coordinates[i][0] - coordinates[j][0])
-        width = abs(coordinates[i][1] - coordinates[j][1])
+for point_i in coordinates:
+    for point_j in coordinates:
+        length = abs(point_i[0] - point_j[0])
+        width = abs(point_i[1] - point_j[1])
         area = length * width
         if area > max_area:
             max_area = area
