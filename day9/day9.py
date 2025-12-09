@@ -75,7 +75,24 @@ for y in range(height):
             grid[y][x] = "X"
             green_tiles.add((x, y))
 
-# Now, for each pair of red tiles, check rectangles
+# Build binary grid: 1 if red or green, 0 otherwise
+bin_grid = [[0 for _ in range(width)] for _ in range(height)]
+for y in range(height):
+    for x in range(width):
+        if (x, y) in red_tiles or (x, y) in green_tiles:
+            bin_grid[y][x] = 1
+
+# Compute 2D prefix sum
+prefix = [[0 for _ in range(width+1)] for _ in range(height+1)]
+for y in range(1, height+1):
+    for x in range(1, width+1):
+        prefix[y][x] = bin_grid[y-1][x-1] + prefix[y-1][x] + prefix[y][x-1] - prefix[y-1][x-1]
+
+def rect_sum(x1, y1, x2, y2):
+    # inclusive coordinates
+    return prefix[y2+1][x2+1] - prefix[y1][x2+1] - prefix[y2+1][x1] + prefix[y1][x1]
+
+# Now, for each pair of red tiles, check rectangles using prefix sum
 max_area = 0
 red_tiles = list(red_tiles)
 for i in range(len(red_tiles)):
@@ -84,16 +101,9 @@ for i in range(len(red_tiles)):
         x2, y2 = red_tiles[j]
         minx, maxx = min(x1, x2), max(x1, x2)
         miny, maxy = min(y1, y2), max(y1, y2)
-        valid = True
-        for y in range(miny, maxy+1):
-            for x in range(minx, maxx+1):
-                if (x, y) not in red_tiles and (x, y) not in green_tiles:
-                    valid = False
-                    break
-            if not valid:
-                break
-        if valid:
-            area = (maxx - minx + 1) * (maxy - miny + 1)
+        area = (maxx - minx + 1) * (maxy - miny + 1)
+        total = rect_sum(minx, miny, maxx, maxy)
+        if total == area:
             if area > max_area:
                 max_area = area
 
