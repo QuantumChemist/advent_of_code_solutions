@@ -10,6 +10,7 @@ for line in code.splitlines():
 # find largest rectangle area between opposite corners
 
 max_area = 0
+total_area = 0
 for point_i in coordinates:
     for point_j in coordinates:
         length = abs(point_i[0] - point_j[0])+1
@@ -20,3 +21,9 @@ for point_i in coordinates:
             max_area = area
 
 print(f"Largest rectangle area: {max_area}")
+
+
+def shoelace_formula(p1, p2, p3, p4):
+    return abs((p1[0]*p2[1] + p2[0]*p3[1] + p3[0]*p4[1] + p4[0]*p1[1]) - (p1[1]*p2[0] + p2[1]*p3[0] + p3[1]*p4[0] + p4[1]*p1[0])) / 2
+
+
